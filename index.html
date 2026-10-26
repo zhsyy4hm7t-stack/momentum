@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ro"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MOMENTUM – Curățare și îngrijire morminte</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--g:#1f3d2e;--g2:#2c5641;--iv:#f7f2e7;--w:#fff;--au:#b8975a;--tx:#1d2a23;--mu:#5f6b63;--bd:#e3dccb;--er:#a63a2e;--ok:#2c7a4b;--card:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--iv:#121b16;--w:#18241d;--card:#1b2a22;--tx:#efe9da;--mu:#a4b0a7;--bd:#2d3f35;--g:#2c5641;--g2:#3b6d54}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--iv);color:var(--tx);font:16px/1.55 Inter,system-ui,sans-serif;-webkit-text-size-adjust:100%}
+h1,h2,h3,.logo{font-family:"Cormorant Garamond",Georgia,serif;margin:0;line-height:1.15}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--g);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+.logo{font-size:24px;letter-spacing:.2em;font-weight:700}.logo i{color:var(--au);font-style:normal}
+nav{display:flex;gap:2px;overflow-x:auto}nav a{color:#fff;opacity:.8;text-decoration:none;font-size:13px;padding:8px 9px;border-radius:8px;white-space:nowrap}nav a.on{opacity:1;background:#ffffff22}
+main{max-width:640px;margin:0 auto;padding:0 18px 90px;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.hero{background:linear-gradient(160deg,var(--g),var(--g2));color:#fff;margin:0 -18px;padding:48px 24px 44px;text-align:center}
+.hero h1{font-size:38px;font-weight:600}.hero p{opacity:.88;margin:14px auto 24px;max-width:460px}.orn{color:var(--au);letter-spacing:.5em;font-size:13px;margin-bottom:12px}
+.btn{display:inline-block;border:0;border-radius:12px;padding:14px 22px;font:600 16px Inter,sans-serif;cursor:pointer;background:var(--au);color:#1d1a10;text-decoration:none;min-height:48px}
+.btn.s{background:transparent;border:1.5px solid var(--g2);color:var(--tx)}.btn.d{background:var(--er);color:#fff}.btn.sm{padding:8px 12px;min-height:38px;font-size:14px}
+.btn:active{transform:scale(.98)}.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--au);outline-offset:2px}
+h2{font-size:30px;margin:34px 0 6px;color:var(--g)}@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) h2{color:var(--au)}}
+.sub{color:var(--mu);margin:0 0 14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:16px;margin:10px 0;box-shadow:0 2px 10px #0000000a}
+.card h3{font-size:22px}.meta{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;font-size:13px;color:var(--mu)}
+.tag{background:var(--iv);border:1px solid var(--bd);border-radius:99px;padding:2px 10px}.price{color:var(--g);font-weight:600}
+.note{font-size:12.5px;background:#b8975a22;border:1px solid var(--au);border-radius:10px;padding:8px 12px;margin:10px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid .card{margin:0;text-align:center}.ico{font-size:26px}
+label{display:block;font-weight:600;margin:14px 0 5px;font-size:14px}
+input,select,textarea{width:100%;padding:13px;border:1.5px solid var(--bd);border-radius:10px;font:16px Inter,sans-serif;background:var(--w);color:var(--tx)}
+input[aria-invalid=true],select[aria-invalid=true]{border-color:var(--er)}.err{color:var(--er);font-size:13px;margin-top:4px}
+.bar{height:6px;background:var(--bd);border-radius:9px;margin:16px 0 4px;overflow:hidden}.bar b{display:block;height:100%;background:var(--au);transition:width .3s}
+.opt{display:block;cursor:pointer;border:1.5px solid var(--bd);border-radius:14px;padding:14px;margin:8px 0;background:var(--card)}.opt.on{border-color:var(--g2);box-shadow:0 0 0 2px var(--au)}
+.row{display:flex;gap:10px;margin-top:20px}.row .btn{flex:1}
+.st{border-radius:99px;padding:3px 11px;font-size:12px;font-weight:600;display:inline-block}
+.st.pending{background:#f3e3b5;color:#6b5210}.st.confirmed{background:#cfe8d8;color:#1b5a35}.st.completed{background:#d8dff0;color:#2a3d73}.st.cancelled{background:#f2d3cf;color:#8a2c22}
+.steps{display:flex;justify-content:space-between;margin:16px 0}.steps div{flex:1;text-align:center;font-size:12px;color:var(--mu);position:relative}.steps div:before{content:"";display:block;width:14px;height:14px;border-radius:50%;background:var(--bd);margin:0 auto 4px}.steps .d:before{background:var(--au)}
+.ref{font:600 26px "Cormorant Garamond",serif;letter-spacing:.12em;color:var(--g);text-align:center;background:var(--iv);border:1.5px dashed var(--au);border-radius:12px;padding:12px;margin:14px 0}
+.tabs{display:flex;gap:6px;margin:16px 0}.tabs button{flex:1}
+dl{margin:0}dt{font-size:12px;color:var(--mu);margin-top:8px}dd{margin:0}
+footer{text-align:center;color:var(--mu);font-size:12px;padding:30px 18px}
+</style></head><body>
+<header><div class="logo">MOMENT<i>U</i>M</div><nav id="nav"></nav></header>
+<main id="app"></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const RON=n=>new Intl.NumberFormat("ro-RO",{style:"currency",currency:"RON",maximumFractionDigits:0}).format(n);
+const dRO=d=>d?new Date(d+"T12:00").toLocaleDateString("ro-RO",{day:"2-digit",month:"long",year:"numeric"}):"—";
+const ST={pending:"În așteptare",confirmed:"Confirmată",completed:"Finalizată",cancelled:"Anulată"};
+const DEF={phone:"",email:"",hours:"Luni–Vineri, 09:00–17:00",slots:["09:00–11:00","11:00–13:00","14:00–16:00"],services:[
+{id:"s1",name:"Curățare de bază",dur:"45–60 min",price:150,desc:"Spălarea monumentului, îndepărtarea frunzelor și a impurităților de pe suprafața mormântului."},
+{id:"s2",name:"Curățare profundă a pietrei funerare",dur:"2–3 ore",price:350,desc:"Curățare detaliată a lespezii și a crucii, cu produse adecvate tipului de piatră."},
+{id:"s3",name:"Îndepărtare mușchi, mizerie și buruieni",dur:"1–2 ore",price:250,desc:"Eliminarea mușchiului, lichenilor și a vegetației nedorite, fără a deteriora piatra."},
+{id:"s4",name:"Curățarea și întreținerea zonei din jur",dur:"1–2 ore",price:200,desc:"Îngrijirea spațiului din jurul mormântului: borduri, alei, spațiu verde."},
+{id:"s5",name:"Aranjamente florale și întreținere sezonieră",dur:"30–60 min",price:180,desc:"Flori proaspete sau aranjamente de sezon, plantare și întreținere."},
+{id:"s6",name:"Pachet personalizat",dur:"Variabil",price:0,desc:"Combinăm serviciile după nevoile dumneavoastră. Prețul se stabilește după discuție."}]};
+const SAMPLE=[{ref:"MOM-DEMO01",name:"Ion Popescu (exemplu)",phone:"07xx xxx xxx",email:"exemplu@exemplu.ro",service:"Curățare de bază",cemetery:"Cimitirul Bellu",city:"București",section:"Fig. 12",plot:"A",row:"3",grave:"45",date:"2026-11-02",slot:"09:00–11:00",notes:"Vă rog să lăsați o lumânare.",status:"pending",internal:"",created:"2026-10-25"}];
+let cfg=structuredClone(DEF),B=[],sb=null,session=null,admin=false,demo=true,avail=null,lerr="",view="acasa",step=1,f={},er={},done=null,filt={st:"",cem:"",d:""};
+const save=()=>{try{localStorage.setItem("mom_demo",JSON.stringify({cfg,B}))}catch(e){}};
+const NAV=[["acasa","Acasă"],["servicii","Servicii"],["programare","Programare"],["status","Status"],["contact","Contact"],["admin","Admin"]];
+function go(v){view=v;if(v==="programare"&&done){done=null;step=1;f={}}history.replaceState(null,"","#"+v);render();scrollTo(0,0)}
+function render(){
+$("#nav").innerHTML=NAV.map(([k,l])=>`<a href="#${k}" class="${view===k?"on":""}" onclick="go('${k}');return false">${l}</a>`).join("");
+const V={acasa:home,servicii:servicii,programare:book,status:status,contact:contact,admin:adminV}[view]||home;
+$("#app").innerHTML=(demo&&view!=="admin"&&view!=="acasa"?`<div class="note">⚠ Mod demonstrativ: Supabase nu este configurat (config.js). Nimic din ce introduceți nu este trimis companiei.</div>`:"")+V()+`<footer>© MOMENTUM · Îngrijire profesională a mormintelor</footer>`}
+function home(){return `<section class="hero"><div class="orn">✦ ✦ ✦</div><h1>Grijă și respect, chiar și de la distanță.</h1><p>Curățăm și întreținem mormintele cu atenție, discreție și profesionalism, pentru ca amintirea celor dragi să rămână îngrijită.</p><button class="btn" onclick="go('programare')">Programează o curățare</button></section>
+<h2>Serviciile noastre</h2><p class="sub">Șase moduri de a avea grijă de locul de odihnă al celor dragi.</p>
+${cfg.services.slice(0,3).map(s=>`<div class="card"><h3>${esc(s.name)}</h3><p>${esc(s.desc)}</p></div>`).join("")}<button class="btn s" onclick="go('servicii')">Vezi toate serviciile</button>
+<h2>De ce MOMENTUM</h2><div class="grid" style="margin-top:12px">${[["🕊","Respect","Lucrăm cu delicatețe și discreție."],["📍","Oriunde","Vă ajutăm chiar dacă sunteți departe."],["🧴","Produse adecvate","Metode sigure pentru piatră."],["📋","Transparență","Confirmare și status clar."]].map(x=>`<div class="card"><div class="ico">${x[0]}</div><b>${x[1]}</b><div class="sub" style="font-size:13px;margin:0">${x[2]}</div></div>`).join("")}</div>
+<h2>Cum funcționează</h2>${["Alegeți serviciul și completați locația mormântului.","Alegeți data și intervalul orar dorit.","Echipa confirmă cererea dumneavoastră.","Primiți mormântul îngrijit."].map((t,i)=>`<div class="card" style="display:flex;gap:14px;align-items:center"><span class="logo" style="font-size:34px;color:var(--au)">${i+1}</span><span>${t}</span></div>`).join("")}`+contact()}
+function servicii(){return `<h2>Servicii</h2><p class="sub">Descrieri, durate estimate și prețuri.</p><div class="note">Prețurile sunt <b>ilustrative</b> și vor fi înlocuite după confirmarea de către companie.</div>${cfg.services.map(s=>`<div class="card"><h3>${esc(s.name)}</h3><p>${esc(s.desc)}</p><div class="meta"><span class="tag">⏱ ${esc(s.dur)}</span><span class="tag price">${s.price?"de la "+RON(s.price)+" (exemplu)":"Preț la cerere"}</span></div><button class="btn sm" onclick="f.service='${s.id}';go('programare')">Alege serviciul</button></div>`).join("")}`}
+const REQ={1:["service"],2:["cemetery","city"],3:["section"],4:["date","slot"],5:["name","phone","email"]};
+const LBL={service:"un serviciu",cemetery:"Numele cimitirului",city:"Orașul",section:"Secția / parcela",date:"Data",slot:"Intervalul orar",name:"Numele",phone:"Telefonul",email:"E-mailul"};
+function valid(n){er={};(REQ[n]||[]).forEach(k=>{if(!String(f[k]||"").trim())er[k]=k==="service"?"Alegeți un serviciu.":`${LBL[k]} este obligatoriu.`});
+if(n===4&&f.date){const t=new Date().toISOString().slice(0,10);if(f.date<t)er.date="Data nu poate fi în trecut."}
+if(n===5){if(f.phone&&!/^(\+?40|0)[\s.-]?7\d{2}[\s.-]?\d{3}[\s.-]?\d{3}$|^(\+?40|0)[\s.-]?[23]\d{8}$/.test(f.phone.trim()))er.phone="Introduceți un număr valid (ex. 07xx xxx xxx)."; if(f.email&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email))er.email="Introduceți o adresă de e-mail validă."}
+return !Object.keys(er).length}
+const fld=(k,l,t="text",ph="",x="")=>`<label for="${k}">${l}</label><input id="${k}" type="${t}" value="${esc(f[k]||"")}" placeholder="${ph}" ${x} aria-invalid="${!!er[k]}" ${er[k]?`aria-describedby="e-${k}"`:""} oninput="f.${k}=this.value">${er[k]?`<div class="err" id="e-${k}" role="alert">${er[k]}</div>`:""}`;
+function book(){
+if(done)return `<h2>Cerere ${demo?"înregistrată local (demo)":"trimisă"}</h2>${demo?`<div class="note"><b>Atenție:</b> aceasta este o demonstrație. Cererea NU a fost trimisă companiei.</div>`:`<p class="sub">Am primit cererea dumneavoastră. Echipa o va confirma în curând.</p>`}<div class="ref">${done}</div><p style="text-align:center">Păstrați această referință pentru a verifica statusul.</p><div class="row"><button class="btn" onclick="go('status')">Verifică statusul</button><button class="btn s" onclick="go('acasa')">Acasă</button></div>`;
+const T=["Serviciu","Cimitir","Mormânt","Data","Date","Detalii","Verificare"];
+let h=`<h2>Programează o curățare</h2><div class="bar"><b style="width:${step/7*100}%"></b></div><div class="sub" aria-live="polite">Pasul ${step} din 7 · ${T[step-1]}</div>`;
+if(step===1)h+=`<div role="radiogroup" aria-label="Serviciu">${cfg.services.map(s=>`<label class="opt ${f.service===s.id?"on":""}" style="font-weight:400;margin:8px 0"><input type="radio" name="sv" style="width:auto;position:absolute;opacity:0" ${f.service===s.id?"checked":""} onchange="f.service='${s.id}';render()"><b>${esc(s.name)}</b><br><span class="sub" style="font-size:13px">${esc(s.dur)} · ${s.price?"de la "+RON(s.price)+" (exemplu)":"preț la cerere"}</span></label>`).join("")}</div>${er.service?`<div class="err" role="alert">${er.service}</div>`:""}`;
+if(step===2)h+=fld("cemetery","Numele cimitirului *","text","ex. Cimitirul Central")+fld("city","Orașul *");
+if(step===3)h+=fld("section","Secția / parcela *")+fld("plot","Lot")+fld("row","Rând")+fld("grave","Număr mormânt");
+if(step===4){const m=new Date().toISOString().slice(0,10);h+=`<label for="date">Data preferată *</label><input id="date" type="date" min="${m}" value="${esc(f.date||"")}" aria-invalid="${!!er.date}" onchange="f.date=this.value;f.slot='';loadSlots()">${er.date?`<div class="err" role="alert">${er.date}</div>`:""}<label for="slot">Interval orar *</label><select id="slot" aria-invalid="${!!er.slot}" onchange="f.slot=this.value"><option value="">${f.date?"Alegeți…":"Alegeți mai întâi data"}</option>${(avail||cfg.slots.map(l=>({label:l,free:true}))).map(s=>`<option value="${esc(s.label)}" ${s.free?"":"disabled"} ${f.slot===s.label?"selected":""}>${esc(s.label)}${s.free?"":" — ocupat"}</option>`).join("")}</select>${er.slot?`<div class="err" role="alert">${er.slot}</div>`:""}`}
+
+if(step===5)h+=fld("name","Nume complet *","text","","autocomplete=name")+fld("phone","Telefon *","tel","07xx xxx xxx","autocomplete=tel")+fld("email","E-mail *","email","","autocomplete=email")+`<div style="position:absolute;left:-9999px" aria-hidden="true"><input tabindex="-1" autocomplete="off" oninput="f.hp=this.value"></div>`;
+if(step===6)h+=`<label for="notes">Instrucțiuni speciale</label><textarea id="notes" rows="5" oninput="f.notes=this.value">${esc(f.notes||"")}</textarea><div class="note">Încărcarea de fotografii nu este disponibilă încă în această versiune.</div>`;
+if(step===7){const s=cfg.services.find(x=>x.id===f.service)||{};h+=`<div class="card"><dl><dt>Serviciu</dt><dd>${esc(s.name)}</dd><dt>Cimitir</dt><dd>${esc(f.cemetery)}, ${esc(f.city)}</dd><dt>Locație</dt><dd>Secția ${esc(f.section)} · Lot ${esc(f.plot||"—")} · Rând ${esc(f.row||"—")} · Nr. ${esc(f.grave||"—")}</dd><dt>Data</dt><dd>${dRO(f.date)}, ${esc(f.slot)}</dd><dt>Contact</dt><dd>${esc(f.name)}<br>${esc(f.phone)}<br>${esc(f.email)}</dd><dt>Instrucțiuni</dt><dd>${esc(f.notes||"—")}</dd></dl></div><div class="note">Prețul final este confirmat de companie. Prețurile afișate sunt ilustrative.</div>${er.sub?`<div class="err" role="alert">${er.sub}</div>`:""}`}
+return h+`<div class="row">${step>1?`<button class="btn s" onclick="step--;er={};render()">Înapoi</button>`:""}<button class="btn" id="nx" onclick="next()">${step===7?"Trimite cererea":"Continuă"}</button></div>`}
+async function next(){if(!valid(step)){render();const e=document.querySelector("[aria-invalid=true]");e&&e.focus();return}
+if(step<7){step++;render();scrollTo(0,0);return}
+const b=$("#nx");b.disabled=true;b.textContent="Se trimite…";
+const s=cfg.services.find(x=>x.id===f.service);
+try{if(sb){const{data,error}=await sb.rpc("create_booking",{p:{service_id:s.id,cemetery:f.cemetery,city:f.city,section:f.section,plot:f.plot||"",row:f.row||"",grave:f.grave||"",date:f.date,slot:f.slot,name:f.name,phone:f.phone,email:f.email,notes:f.notes||"",hp:f.hp||""}});if(error)throw error;done=data}
+else{const ref="MOM-"+Array.from(crypto.getRandomValues(new Uint8Array(6)),x=>"ABCDEFGHJKLMNPQRSTUVWXYZ23456789"[x%32]).join("");B.push({...f,ref,service:s.name,status:"pending",internal:"",created:new Date().toISOString().slice(0,10)});save();done=ref}
+step=1;f={};er={}}
+catch(e){const m=String(e.message||"");if(/slot_taken/.test(m)){step=4;f.slot="";er={slot:"Intervalul ales tocmai a fost ocupat. Alegeți alt interval."};loadSlots();return}
+er={sub:/rate_limit/.test(m)?"Prea multe cereri de la acest număr. Vă rugăm să ne contactați telefonic.":"Cererea nu a putut fi salvată. Vă rugăm să încercați din nou."}}
+render()}
+let sref=null;
+function status(){return `<h2>Statusul cererii</h2><p class="sub">Introduceți referința primită la programare.</p>${fld("q","Referință","text","MOM-XXXXXXXX")}${fld("qe","E-mailul folosit la programare","email")}<div class="row"><button class="btn" onclick="lookup()">Verifică</button></div><div id="sres" aria-live="polite">${sref||""}</div><h2 style="font-size:24px">Ce înseamnă fiecare status</h2>${[["pending","Cererea a fost primită și așteaptă confirmarea."],["confirmed","Data și intervalul au fost confirmate."],["completed","Lucrarea a fost efectuată."],["cancelled","Cererea a fost anulată."]].map(([k,t])=>`<div class="card"><span class="st ${k}">${ST[k]}</span><p style="margin:8px 0 0">${t}</p></div>`).join("")}`}
+async function lookup(){const q=(f.q||"").trim().toUpperCase();if(!q){sref=`<div class="err" role="alert">Introduceți referința.</div>`;return render()}
+let r=null;try{if(sb){const{data}=await sb.rpc("get_booking_status",{p_ref:q,p_email:(f.qe||"").trim()});r=data&&data[0]?{status:data[0].status,date:data[0].booking_date,slot:data[0].slot_label}:null}else{const b=B.find(x=>x.ref===q);r=b&&{status:b.status,date:b.date,slot:b.slot}}}catch(e){}
+sref=r?`<div class="card"><span class="st ${r.status}">${ST[r.status]||r.status}</span><p style="margin:8px 0 0">Data: ${dRO(r.date)}, ${esc(r.slot)}</p></div>`:`<div class="card">Nu am găsit cererea. Verificați referința și e-mailul sau contactați-ne.</div>`;render();$("#q").focus()}
+function contact(){return `<h2>Contact</h2><div class="card"><dl><dt>Telefon</dt><dd>${cfg.phone?`<a href="tel:${esc(cfg.phone)}">${esc(cfg.phone)}</a>`:"<i>Se va completa de companie</i>"}</dd><dt>E-mail</dt><dd>${cfg.email?`<a href="mailto:${esc(cfg.email)}">${esc(cfg.email)}</a>`:"<i>Se va completa de companie</i>"}</dd><dt>Program</dt><dd>${esc(cfg.hours)}</dd></dl></div>`}
+/* ADMIN */
+let at="rez",sel=null;
+function adminV(){
+if(!demo&&!session)return loginV();
+if(!demo&&!admin)return `<h2>Acces refuzat</h2><div class="card"><p>Contul dumneavoastră nu este înregistrat ca personal.</p><button class="btn s" onclick="logout()">Deconectare</button></div>`;
+const demoN=demo?`<div class="note">Mod demonstrativ: datele sunt exemple și rămân doar pe acest dispozitiv. Autentificarea reală necesită activarea stocării online.</div>`:"";
+let h=`<h2>Panou administrare</h2>${demoN}${demo?"":`<button class="btn s sm" onclick="logout()">Deconectare</button>`}<div class="tabs"><button class="btn sm ${at==="rez"?"":"s"}" onclick="at='rez';sel=null;render()">Rezervări</button><button class="btn sm ${at==="cfg"?"":"s"}" onclick="at='cfg';render()">Setări</button></div>`;
+if(at==="cfg")return h+`<div class="card"><h3>Contact</h3>${["phone:Telefon","email:E-mail","hours:Program"].map(x=>{const[k,l]=x.split(":");return `<label for="c${k}">${l}</label><input id="c${k}" value="${esc(cfg[k])}" onchange="cfg.${k}=this.value">`}).join("")}<label for="csl">Intervale orare (unul pe linie)</label><textarea id="csl" rows="4" onchange="cfg.slots=this.value.split('\\n').map(x=>x.trim()).filter(Boolean)">${esc(cfg.slots.join("\n"))}</textarea></div>${cfg.services.map((s,i)=>`<div class="card"><label for="n${i}">Serviciu</label><input id="n${i}" value="${esc(s.name)}" onchange="cfg.services[${i}].name=this.value"><label for="p${i}">Preț exemplu (RON)</label><input id="p${i}" type="number" min="0" value="${s.price}" onchange="cfg.services[${i}].price=+this.value"><label for="d${i}">Durată</label><input id="d${i}" value="${esc(s.dur)}" onchange="cfg.services[${i}].dur=this.value"></div>`).join("")}<button class="btn" onclick="saveCfg()">Salvează setările</button>`;
+const L=B.filter(b=>(!filt.st||b.status===filt.st)&&(!filt.d||b.date===filt.d)&&(!filt.cem||b.cemetery.toLowerCase().includes(filt.cem.toLowerCase()))).sort((a,b)=>a.date<b.date?-1:1);
+h+=`<div class="card"><label for="fs" style="margin-top:0">Status</label><select id="fs" onchange="filt.st=this.value;render()"><option value="">Toate</option>${Object.entries(ST).map(([k,v])=>`<option value="${k}" ${filt.st===k?"selected":""}>${v}</option>`).join("")}</select><label for="fd">Data</label><input id="fd" type="date" value="${filt.d}" onchange="filt.d=this.value;render()"><label for="fc">Cimitir</label><input id="fc" value="${esc(filt.cem)}" oninput="filt.cem=this.value" onchange="render()" placeholder="Caută cimitir"></div><p class="sub">${L.length} cereri</p>`;
+return h+(L.map(b=>`<div class="card"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(b.ref)}</b><span class="st ${b.status}">${ST[b.status]}</span></div><div>${esc(b.service)}</div><div class="sub" style="margin:0">${dRO(b.date)}, ${esc(b.slot)} · ${esc(b.cemetery)}, ${esc(b.city)}</div>${sel===b.ref?bdet(b):`<button class="btn s sm" style="margin-top:8px" onclick="sel='${b.ref}';render()">Detalii</button>`}</div>`).join("")||`<div class="card">Nicio cerere.</div>`)}
+function bdet(b){return `<dl><dt>Client</dt><dd>${esc(b.name)}<br><a href="tel:${esc(b.phone)}">${esc(b.phone)}</a><br>${esc(b.email)}</dd><dt>Mormânt</dt><dd>Secția ${esc(b.section)} · Lot ${esc(b.plot||"—")} · Rând ${esc(b.row||"—")} · Nr. ${esc(b.grave||"—")}</dd><dt>Instrucțiuni client</dt><dd>${esc(b.notes||"—")}</dd></dl>
+<label for="as">Status</label><select id="as" onchange="upd('${b.ref}',{status:this.value})">${Object.entries(ST).map(([k,v])=>`<option value="${k}" ${b.status===k?"selected":""}>${v}</option>`).join("")}</select>
+<label for="ad">Reprogramare</label><input id="ad" type="date" value="${b.date}" onchange="upd('${b.ref}',{date:this.value})"><select aria-label="Interval" onchange="upd('${b.ref}',{slot:this.value})" style="margin-top:6px">${cfg.slots.map(s=>`<option ${b.slot===s?"selected":""}>${esc(s)}</option>`).join("")}</select>
+<label for="an">Notițe interne</label><textarea id="an" rows="3" onchange="upd('${b.ref}',{internal:this.value},1)">${esc(b.internal||"")}</textarea>
+<div class="row"><button class="btn sm" onclick="upd('${b.ref}',{status:'confirmed'})">Confirmă</button><button class="btn d sm" onclick="if(confirm('Anulați cererea?'))upd('${b.ref}',{status:'cancelled'})">Anulează</button></div><button class="btn s sm" style="margin-top:8px" onclick="sel=null;render()">Închide</button>`}
+async function upd(ref,p,q){const b=B.find(x=>x.ref===ref);
+if(sb){const{error}=await sb.rpc("staff_update_booking",{p_id:b.id,p_status:p.status??null,p_date:p.date??null,p_slot:p.slot??null,p_internal:p.internal??null});
+if(error){alert(/slot_taken/.test(error.message)?"Intervalul este deja ocupat.":"Modificarea nu a putut fi salvată.");await loadAdmin();return}}
+Object.assign(b,p);if(!sb)save();if(!q)render()}
+async function saveCfg(){try{if(sb){let r=await sb.from("settings").update({phone:cfg.phone,email:cfg.email,hours:cfg.hours}).eq("id",1);if(r.error)throw r.error;
+r=await sb.from("services").upsert(cfg.services.map((x,i)=>({id:x.id,name:x.name,description:x.desc,duration:x.dur,price:x.price,sort:i})));if(r.error)throw r.error;
+r=await sb.from("time_slots").delete().gte("id",0);if(r.error)throw r.error;
+r=await sb.from("time_slots").insert(cfg.slots.map((l,i)=>({label:l,sort:i})));if(r.error)throw r.error}else save();alert("Setările au fost salvate.")}catch(e){alert("Setările nu au putut fi salvate.")}}
+async function loadSlots(){avail=null;render();if(!sb||!f.date)return;const{data,error}=await sb.rpc("get_available_slots",{d:f.date});if(!error)avail=data;render()}
+async function loadCfg(){const[a,b,c]=await Promise.all([sb.from("settings").select("*").eq("id",1).single(),sb.from("services").select("*").eq("active",true).order("sort"),sb.from("time_slots").select("label").order("sort")]);
+if(a.data&&b.data&&b.data.length&&c.data)cfg={phone:a.data.phone,email:a.data.email,hours:a.data.hours,services:b.data.map(x=>({id:x.id,name:x.name,desc:x.description,dur:x.duration,price:+x.price})),slots:c.data.map(x=>x.label)}}
+async function loadAdmin(){const{data,error}=await sb.rpc("staff_list_bookings");if(!error)B=data;render()}
+async function login(){lerr="";const{error}=await sb.auth.signInWithPassword({email:(f.le||"").trim(),password:f.lp||""});f.lp="";
+if(error)lerr="E-mail sau parolă incorecte.";else{session=(await sb.auth.getSession()).data.session;admin=!!(await sb.rpc("is_staff")).data;if(admin)await loadAdmin()}render()}
+async function logout(){await sb.auth.signOut();session=null;admin=false;B=[];render()}
+function loginV(){return `<h2>Autentificare personal</h2><div class="card">${fld("le","E-mail","email","","autocomplete=username")}<label for="lp">Parolă</label><input id="lp" type="password" autocomplete="current-password" oninput="f.lp=this.value">${lerr?`<div class="err" role="alert">${lerr}</div>`:""}<div class="row"><button class="btn" onclick="login()">Intră în cont</button></div></div>`}
+(async()=>{view=(location.hash||"#acasa").slice(1);if(!NAV.some(n=>n[0]===view))view="acasa";const C=window.MOMENTUM_CONFIG||{};
+if(C.SUPABASE_URL&&C.SUPABASE_ANON_KEY&&window.supabase){sb=supabase.createClient(C.SUPABASE_URL,C.SUPABASE_ANON_KEY);demo=false;
+try{await loadCfg();session=(await sb.auth.getSession()).data.session;if(session){admin=!!(await sb.rpc("is_staff")).data;if(admin)await loadAdmin()}}catch(e){}}
+else{try{const x=JSON.parse(localStorage.getItem("mom_demo")||"null");if(x){cfg=x.cfg;B=x.B}else B=SAMPLE.slice()}catch(e){B=SAMPLE.slice()}}
+render()})();
+render();
+</script></body></html>
