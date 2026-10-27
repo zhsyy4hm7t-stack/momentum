@@ -142,7 +142,7 @@ async function login(){lerr="";const{error}=await sb.auth.signInWithPassword({em
 if(error)lerr="E-mail sau parolă incorecte.";else{session=(await sb.auth.getSession()).data.session;admin=!!(await sb.rpc("is_staff")).data;if(admin)await loadAdmin()}render()}
 async function logout(){await sb.auth.signOut();session=null;admin=false;B=[];render()}
 function loginV(){return `<h2>Autentificare personal</h2><div class="card">${fld("le","E-mail","email","","autocomplete=username")}<label for="lp">Parolă</label><input id="lp" type="password" autocomplete="current-password" oninput="f.lp=this.value">${lerr?`<div class="err" role="alert">${lerr}</div>`:""}<div class="row"><button class="btn" onclick="login()">Intră în cont</button></div></div>`}
-(async()=>{view=(location.hash||"#acasa").slice(1);if(!NAV.some(n=>n[0]===view))view="acasa";const C=window.MOMENTUM_CONFIG||{};
+(async()=>{view=(location.hash||"#acasa").slice(1);if(!NAV.some(n=>n[0]===view))view="acasa";const C=window.MONUMENTUM_CONFIG||window.MOMENTUM_CONFIG||{};
 if(C.SUPABASE_URL&&C.SUPABASE_ANON_KEY&&window.supabase){sb=supabase.createClient(C.SUPABASE_URL,C.SUPABASE_ANON_KEY);demo=false;
 try{await loadCfg();session=(await sb.auth.getSession()).data.session;if(session){admin=!!(await sb.rpc("is_staff")).data;if(admin)await loadAdmin()}}catch(e){}}
 else{try{const x=JSON.parse(localStorage.getItem("mom_demo")||"null");if(x){cfg=x.cfg;B=x.B}else B=SAMPLE.slice()}catch(e){B=SAMPLE.slice()}}
